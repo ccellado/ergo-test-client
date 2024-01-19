@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "3.3.1"
 
 val Versions = new {
   val vertxSnapshot    = "4.5.2-20240113.040803-23"
-  val ergoCoreSnapshot = "5.0.18-37-c364817c-SNAPSHOT"
+  val ergoCoreSnapshot = "5.0.18-44-cac70444-SNAPSHOT"
 }
 
 lazy val root = (project in file("."))

@@ -1,14 +1,12 @@
-package messageSpec
+package testclient.message
 
-import org.ergoplatform.network.message.{MessageConstants, MessageSpec, MessageSpecV1}
-import org.ergoplatform.nodeView.history.ErgoSyncInfoMessageSpec
-import scodec.Codec
+import org.ergoplatform.network.message.{MessageConstants, MessageSpec}
 import scodec.*
 import scodec.bits.ByteVector
 import scodec.codecs.*
 import scorex.crypto.hash.Blake2b256
 import scorex.utils.Ints
-import utils.Utils.magic
+import testclient.utils.Utils.magic
 
 case class Message(
     magic: ByteVector,
