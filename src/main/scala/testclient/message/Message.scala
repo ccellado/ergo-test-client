@@ -16,6 +16,7 @@ case class Message(
     data: ByteVector
 )
 
+
 object Message:
   given messageCodec: Codec[Message] = (
     bytes(MessageConstants.MagicLength)

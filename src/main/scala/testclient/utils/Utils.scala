@@ -84,7 +84,7 @@ object Utils:
   case class Address(url: String, port: Int)
 
   enum NodeState:
-    case Running, Syncing, Handshaking
+    case Running, Handshaking, Remaining
 
   val myPeerSpec = PeerSpec(
     agentName = "TestErgoClient",
@@ -112,16 +112,3 @@ object Utils:
     Address("168.138.185.215", 9022),
     Address("192.234.196.165", 9022)
   )
-
-  def await[T](f: Future[T])(using ec: ExecutionContext): T =
-    try
-      var res: Option[T] = None
-      f.onComplete { x =>
-        synchronized:
-          res = Some(x.get)
-          notify()
-      }
-      synchronized:
-        while res.isEmpty do wait()
-        res.get
-    finally ()
